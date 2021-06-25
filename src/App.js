@@ -1,12 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import {useEffect, useState} from "react";
+import {getUsers} from "./commponents/services/API";
+import Users from "./commponents/users/Users";
 
-function App() {
-  return (
-    <div>
-
-    </div>
-  );
+export default function App (){
+  let [users, setUsers] = useState([]);
+  useEffect(() => {
+        getUsers().then(response => {
+          setUsers(response.data)
+        });
+  }, [])
+    return(
+        <div>
+           <Users items={users}/>
+        </div>
+    )
 }
 
-export default App;
+
