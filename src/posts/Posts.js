@@ -3,7 +3,7 @@ export default function Posts ({item}){
     return(
         <div>
             {
-                item.map(post => <Post item={post}/>)
+                item.map(post => <Post post={post}/>)
             }
         </div>
     )

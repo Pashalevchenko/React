@@ -1,0 +1,11 @@
+.block{
+    margin: 20px 10px;
+    background-color: silver;
+    border: 2px solid darkblue;
+    width: 400px;
+    box-shadow: 0 0 10px rgba(0,0,0,1)
+}
+.title{
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}

@@ -1,0 +1,13 @@
+.user_contr{
+    padding: 0 30px;
+    margin: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 280px;
+    border-top: 1px solid darkolivegreen;
+    border-bottom: 1px solid darkolivegreen;
+}
+button{
+    background: black;
+    color: white;
+}

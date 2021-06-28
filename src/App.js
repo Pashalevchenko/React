@@ -16,9 +16,6 @@ export default function App (){
     return(
         <div>
             <Users item={users} userPost={userPost}/>
-            <hr/>
-            <hr/>
-            <hr/>
             {
                 setPosts && <Posts item={posts}/>
             }
