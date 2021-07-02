@@ -1,8 +1,8 @@
-import {getComments} from "../../service/api/API"
+import {getComments} from "../../service/api/API";
 import {useEffect, useState} from "react";
 import Comment from "../comment/Comment";
-export default function Comments (){
 
+export default function Comments (){
     const [comments, setComments] = useState([])
 
    useEffect(()=>{

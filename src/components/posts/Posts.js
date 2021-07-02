@@ -1,9 +1,8 @@
-import {getPosts} from "../../service/api/API"
+import {getPosts} from "../../service/api/API";
 import {useEffect, useState} from "react";
 import Post from "../post/Post";
 
 export default function Posts (){
-
     const [posts, setPosts] = useState([])
 
     useEffect(()=>{
