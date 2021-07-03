@@ -1,0 +1,14 @@
+
+
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+.postDetail{
+    position: fixed;
+    right: 0;
+    width: 60%;
+    padding: 3px;
+    border-bottom: 2px solid cyan;
+    border-top: 2px solid cyan;
+}
