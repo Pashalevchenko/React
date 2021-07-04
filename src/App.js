@@ -12,7 +12,6 @@ function App() {
                     <Link className="link" to={'/users'}>User</Link>
                     <Link className="link" to={'/posts'}>Posts</Link>
                     <Link className="link" to={'/comments'}>Comments</Link>
-
                 </div>
                 <Switch>
                     <Route path={'/users'} component={Users}/>
