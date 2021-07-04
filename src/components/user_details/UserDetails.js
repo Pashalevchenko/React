@@ -4,7 +4,7 @@ export default function UserDetails({location: {state}}) {
     const [user, setUser] = useState([]);
     useEffect(() => {
         setUser({...state})
-    }, [state])
+    }, [state]);
 
     return (
         <div>
