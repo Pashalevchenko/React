@@ -6,4 +6,4 @@ const axiosInstance = axios.create({
 
 const getPosts = () => axiosInstance();
 
-export {getPosts}
+export {getPosts};

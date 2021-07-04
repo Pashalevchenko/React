@@ -6,4 +6,4 @@ const axiosInstance = axios.create({
 
 const getComment = () => axiosInstance();
 
-export {getComment}
+export {getComment};
