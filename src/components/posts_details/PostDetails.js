@@ -1,20 +1,18 @@
 import {useEffect, useState} from "react";
 
-export default function PostDetails ({location:{state}}){
+export default function PostDetails({location: {state}}) {
     const [post, setPost] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         setPost({...state})
-    },[state])
+    }, [state]);
 
-    return(
+    return (
         <div>
-
-                <p>Body: {post.body}</p>
-                <p>Id: {post.id}</p>
-                <p>title: {post.title}</p>
-                <p>Body : {post.body}</p>
-
+            <p>Body: {post.body}</p>
+            <p>Id: {post.id}</p>
+            <p>title: {post.title}</p>
+            <p>Body : {post.body}</p>
         </div>
     )
 }
