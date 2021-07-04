@@ -10,7 +10,7 @@ export default function Posts(props) {
 
     useEffect(() => {
         getPosts().then(value => setPosts(value.data))
-    }, [])
+    }, []);
 
     return (
         <div className='container'>
