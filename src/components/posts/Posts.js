@@ -3,21 +3,24 @@ import {useEffect, useState} from "react";
 import Post from "../post/Post";
 import PostDetails from "../posts_details/PostDetails";
 import {Route, Switch} from "react-router-dom";
-import "./Posts.css"
+import "./Posts.css";
 
-export default function Posts (props){
-    const [posts, setPosts] = useState([])
-    useEffect(()=>{
+export default function Posts(props) {
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
         getPosts().then(value => setPosts(value.data))
-    },[])
-    return(
+    }, [])
+
+    return (
         <div className='container'>
-            <div>
+            <div className='container__post'>
                 {
                     posts.map(post => <Post post={post} key={post.id}/>)
                 }
             </div>
-            <div className='postDetail'>
+
+            <div className='post_detail'>
                 <Switch>
                     <Route path={'/posts/:id'} component={PostDetails}/>
                 </Switch>

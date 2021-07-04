@@ -1,0 +1,14 @@
+.app__links{
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+}
+
+.link{
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.link:hover{
+    color: red;
+}

@@ -1,17 +1,12 @@
-
-.container{
-    display: flex;
-    justify-content: space-between;
+.container_user{
+    width: 45%;
 }
-.post_detail{
+.comments_user{
     position: fixed;
     right: 0;
     width: 50%;
     padding: 3px;
     border-bottom: 2px solid cyan;
     border-top: 2px solid cyan;
-}
 
-.container__post{
-    width: 45%;
 }
