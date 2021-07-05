@@ -12,7 +12,7 @@ export default function Users() {
         getUsers().then(response => {
             setUsers([...response.data])
         })
-    });
+    },[]);
 
     return (
         <div className='container'>
