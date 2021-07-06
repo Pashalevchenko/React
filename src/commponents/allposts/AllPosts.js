@@ -9,7 +9,7 @@ export default function AllPosts({location: {state}}) {
         getUsersPost(state.id).then(response => {
             setPost(response.data)
         })
-    }, []);
+    }, [state]);
 
     return (
         <div>
