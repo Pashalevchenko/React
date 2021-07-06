@@ -7,18 +7,18 @@ import {BrowserRouter as Router, Link, Switch, Route} from "react-router-dom";
 function App() {
     return (
         <Router>
-            <div>
-                <div className='app__links'>
-                    <Link className="link" to={'/users'}>User</Link>
-                    <Link className="link" to={'/posts'}>Posts</Link>
-                    <Link className="link" to={'/comments'}>Comments</Link>
-                </div>
-                <Switch>
-                    <Route path={'/users'} component={Users}/>
-                    <Route path={'/posts'} component={Posts}/>
-                    <Route path={'/comments'} component={Comments}/>
-                </Switch>
+        <div>
+            <div className='app__links'>
+                <Link className="link" to={'/users'}>User</Link>
+                <Link className="link" to={'/posts'}>Posts</Link>
+                <Link className="link" to={'/comments'}>Comments</Link>
             </div>
+            <Switch>
+                <Route path={'/users'} component={Users}/>
+                <Route path={'/posts'} component={Posts}/>
+                <Route path={'/comments'} component={Comments}/>
+            </Switch>
+        </div>
         </Router>
     );
 }

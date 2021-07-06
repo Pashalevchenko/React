@@ -4,7 +4,7 @@ export default function PostDetails({location: {state}}) {
     const [post, setPost] = useState([]);
 
     useEffect(() => {
-        setPost({...state})
+        setPost(state)
     }, [state]);
 
     return (

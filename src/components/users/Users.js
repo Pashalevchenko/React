@@ -10,7 +10,7 @@ export default function Users() {
 
     useEffect(() => {
         getUsers().then(response => {
-            setUsers([...response.data])
+            setUsers(response.data)
         })
     },[]);
 
