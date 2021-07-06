@@ -1,5 +1,5 @@
 import { Route } from "react-router-dom";
-import { getUsers } from "../service/User_API";
+import { getUsers } from "../../service/User_API";
 import { useEffect, useState } from "react";
 import User from "../user/User";
 import AllPosts from "../allposts/AllPosts";
@@ -9,7 +9,7 @@ export default function Users (){
 
     useEffect(()=>{
         getUsers().then(response => {
-            setUser([...response.data])
+            setUser(response.data)
         })
     },[]);
 

@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {getUsersPost} from "../service/User_API";
+import {getUsersPost} from "../../service/User_API";
 import Post from "../post/Post";
 
 export default function AllPosts({location: {state}}) {
