@@ -7,7 +7,7 @@ export default function AllPosts({location: {state}}) {
 
     useEffect(() => {
         getUsersPost(state.id).then(response => {
-            setPost([...response.data])
+            setPost(response.data)
         })
     }, []);
 
