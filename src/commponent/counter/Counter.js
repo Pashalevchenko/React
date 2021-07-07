@@ -1,38 +1,33 @@
-import {createStore} from "redux";
-import {Provider} from "react-redux";
-import Count from "../count/Count";
+
+import {useDispatch, useSelector} from "react-redux";
 
 export default function Counter (props){
-
-    const initialState = {
-        counterValue: 0,
-    }
-
-    const counterReduser = (state = initialState, action)=>{
-        switch (action.type) {
-            case 'INC' :{
-                return {...state, counterValue: state.counterValue + action.payload}
-            }
-            case 'DEC' :{
-                return {...state, counterValue: state.counterValue - action.payload}
-            }
-            case 'RES' :{
-                return {...state, counterValue: 0}
-            }
-            default:
-                return state
-        }
-    }
-
-
-    const store = createStore(counterReduser)
-    console.log(store)
+    const  counter = useSelector(({counterValue})=> counterValue)
+    const dispach = useDispatch()
 
     return(
         <div>
-            <Provider store={store}>
-                <Count/>
-            </Provider>
+            <h1>{counter}</h1>
+            <button onClick={()=>{
+                dispach({
+                    type: 'INC',
+                    payload: 10
+                })
+            }
+            }>Increse</button>
+            <button onClick={()=>{
+                dispach({
+                    type: 'DEC',
+                    payload: 1
+                })
+            }
+            }>Decrese</button>
+            <button onClick={()=>{
+                dispach({
+                    type: 'RES',
+                })
+            }
+            }>Reset</button>
         </div>
     )
 }
