@@ -1,6 +1,4 @@
 import Counter from "../commponent/counter/Counter";
-import Users from "../commponent/users/Users";
-import {useSelector} from "react-redux";
 import {createStore} from "redux";
 
 const initialState = {
@@ -8,41 +6,38 @@ const initialState = {
     users: [],
     posts: [],
     comments: []
-}
+};
 
-const counterReduser = (state = initialState, action)=>{
+const counterReduser = (state = initialState, action) => {
     switch (action.type) {
-        case 'INC' :{
+        case 'INC' : {
             return {...state, counterValue: state.counterValue + action.payload}
         }
-        case 'DEC' :{
+        case 'DEC' : {
             return {...state, counterValue: state.counterValue - action.payload}
         }
-        case 'RES' :{
+        case 'RES' : {
             return {...state, counterValue: 0}
         }
-        case 'USER' :{
+        case 'USER' : {
             return {...state, users: action.payload}
         }
-        case 'POSTS' :{
+        case 'POSTS' : {
             return {...state, posts: action.payload}
         }
-        case 'COMMENT' :{
+        case 'COMMENT' : {
             return {...state, comments: action.payload}
         }
         default:
             return state
     }
-}
+};
 
-
-export const store = createStore(counterReduser)
-
-
-export default function ReduxComponent (props){
-    return(
+export const store = createStore(counterReduser);
+export default function ReduxComponent(props) {
+    return (
         <div>
             <Counter/>
         </div>
     )
-}
+};

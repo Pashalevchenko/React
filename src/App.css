@@ -1,0 +1,8 @@
+.container{
+    margin: 0 400px
+}
+
+.links{
+    display: flex;
+    column-gap: 40px;
+}
