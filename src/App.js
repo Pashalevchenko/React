@@ -4,59 +4,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {todosReducer} from "./redux/redusers/todos";
 import {setLoadingFalse, setLoadingTrue, addTodos, pushTodo, removeTodo } from "./redux/actionCreators";
-
-
-const СreateTodoForm = ({onSubmit}) => {
-    const [title, setTitle] = useState('')
-    const [description, setDescription] = useState('')
-    const [isLoading, setIsLoading] = useState(false)
-
-    const hendleSubmit = async (e) => {
-        e.preventDefault()
-        if (!title || !description || isLoading) return
-
-        try{
-        setIsLoading(true)
-        await onSubmit(title, description);
-        setTitle('')
-        setDescription('')
-        }catch (e) {
-            console.log(e)
-        }finally {
-            setIsLoading(false)
-        }
-
-    }
-    return (
-        <form onSubmit={hendleSubmit}>
-            <input type="text" value={title} onChange={({target: {value}}) => setTitle(value)}
-                   placeholder='to do title'/>
-            <br/>
-            <input type="text" value={description} onChange={({target: {value}}) => setDescription(value)}
-                   placeholder='to do description'/>
-            <br/>
-            <button type='submit' disabled={!title || !description || isLoading}>create todo</button>
-        </form>
-    )
-}
-const Todos = ({todos, isLoading, todoDel}) => {
-    if(isLoading) return <h1>LOADING...</h1>
-    return(
-        <div>
-            {todos.map(todo =>(
-                <Fragment key={todo.id}>
-                    <div>{todo.title}</div>
-                    <div>{todo.description}</div>
-                    <div>Created At: {new Date(todo.createdAt).toDateString()}</div>
-                    <div>Status {todo.completed.toString()}</div>
-                    <button onClick={()=> todoDel(todo.id)
-                    }>Delite</button>
-                    <hr/>
-                </Fragment>
-            ))}
-        </div>
-    )
-}
+import Todos from "./commponent/todos/Todos";
+import TodosForm from "./commponent/todosForm/TodosForm";
 
 function App() {
     const {todos, todosLoading} = useSelector(store => store.todosReducer);
@@ -98,23 +47,22 @@ function App() {
 
     }
     const delTodo = async (id) =>{
-        const resp =await fetch('http://localhost:8888/delete-todo/' + id, {
+        const resp = await fetch('http://localhost:8888/delete-todo/' + id, {
             method: "DELETE",
         })
       await resp.json()
-
         dispach(removeTodo(id))
-        // fetchTodos()
-        // console.log(data, "noTodoCreate")
-
+        fetchTodos()
     }
-       const todoDel = (id)=> dispach(delTodo(id))
+
+
 
     return (
         <div>
-            <СreateTodoForm onSubmit={onTodoCreate}/>
+            {/*<СreateTodoForm onSubmit={onTodoCreate}/>*/}
+            <TodosForm onSubmit={onTodoCreate}/>
 
-            <Todos todos={todos} isLoading={todosLoading} todoDel={todoDel}/>
+            <Todos todos={todos} isLoading={todosLoading} delTodo={delTodo}/>
         </div>
     );
 }
