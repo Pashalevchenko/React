@@ -11,24 +11,6 @@ function App() {
     const {todos, todosLoading} = useSelector(store => store.todosReducer);
     const dispach = useDispatch();
 
-    const fetchTodos = async () => {
-        try {
-            dispach(setLoadingTrue())
-        const resp = await fetch('http://localhost:8888/get-todos')
-        const data = await resp.json()
-        dispach(addTodos(data))
-        }catch (e) {
-            console.log(e)
-        }finally {
-            dispach(setLoadingFalse())
-        }
-
-    }
-
-    useEffect(() => {
-        fetchTodos()
-    }, [])
-
     const onTodoCreate = async (title, description) =>{
         if (!title || !description) return;
 
@@ -40,29 +22,16 @@ function App() {
             }
         })
         const data = await resp.json()
-
         dispach(pushTodo(data))
-        // fetchTodos()
-        // console.log(data, "noTodoCreate")
 
     }
-    const delTodo = async (id) =>{
-        const resp = await fetch('http://localhost:8888/delete-todo/' + id, {
-            method: "DELETE",
-        })
-      await resp.json()
-        dispach(removeTodo(id))
-        fetchTodos()
-    }
-
-
 
     return (
         <div>
             {/*<СreateTodoForm onSubmit={onTodoCreate}/>*/}
             <TodosForm onSubmit={onTodoCreate}/>
 
-            <Todos todos={todos} isLoading={todosLoading} delTodo={delTodo}/>
+            <Todos todos={todos} isLoading={todosLoading}/>
         </div>
     );
 }

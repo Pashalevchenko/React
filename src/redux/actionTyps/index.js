@@ -4,3 +4,4 @@ export const LOADING_FALSE = "LOADING_FALSE";
 export const PUSH_TODO = "PUSH_TODO";
 export const DELITE = "DELITE";
 export const removeTodo = "REMOVE_TODO";
+export const CHANGE_TODO = "CHANGE_TODO";
