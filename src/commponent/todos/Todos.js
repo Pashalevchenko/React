@@ -37,7 +37,10 @@ export default function Todos ({todos, isLoading}){
     const changeStatus = async (id) =>{
         const resp = await fetch('http://localhost:8888/update-todo/' + id, {
             method:'PATCH',
-            body: JSON.stringify(true),
+            body: JSON.stringify({completed: true}),
+            headers: {
+                'Content-type': 'application/json'
+            }
         })
         const data = await resp.json()
         console.log(data)

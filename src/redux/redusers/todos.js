@@ -28,9 +28,7 @@ export const todosReducer = (state = initialState, action)=>{
             return {...state, todos: state.todos.filter(el => el.id !== action.payload)}
         }
         case CHANGE_TODO: {
-            // return {...state, todos: [...state.todos.description, action.payload]}
-            console.log(state.todos)
-            // state.todos.filter(resp => console.log(resp.completed))
+
         }
         default:
             return  state
