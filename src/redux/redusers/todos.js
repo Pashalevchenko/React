@@ -24,9 +24,7 @@ export const todosReducer = (state = initialState, action) => {
             return {...state, todos: state.todos.filter(el => el.id !== action.payload)}
         }
         case CHANGE_TODO: {
-            return {
-                ...state,
-                todos: state.todos.map(el => el.id === action.id ? {...el, completed: el.completed = true} : el)
+            return {...state, todos: state.todos.map(el => el.id === action.id ? {...el, completed: el.completed = true} : el)
             }
         }
         default:
